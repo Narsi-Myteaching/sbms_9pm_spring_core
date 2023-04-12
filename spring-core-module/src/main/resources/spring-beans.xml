@@ -4,11 +4,57 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
    
+   
+   	<bean id="product-01" class="com.weshopify.feature.di.commons.Products">
+		<property name="productId" value="100"></property>	
+		<property name="name" value="Samsung A53"></property> 
+		<property name="category" value="Mobiles and Accessories"></property>   
+		<property name="available" value="true"></property>   
+		   
+	</bean>
+	
+	<bean id="product-02" class="com.weshopify.feature.di.commons.Products">
+		<property name="productId" value="101"></property>	
+		<property name="name" value="Samsung J7Max"></property> 
+		<property name="category" value="Mobiles and Accessories"></property>   
+		<property name="available" value="false"></property>   
+		   
+	</bean>
+   	
      <bean id="customerDataAccess" class="com.weshopify.feature.users.CustomerDataAccess"></bean>
      
      <bean id="customerBusinessLogic" class="com.weshopify.feature.users.CustomerBusinessLogic">
 		 <constructor-arg ref="customerDataAccess"></constructor-arg>
 		 
 	 </bean>
+	 
+	 <bean id="orderDetails" class="com.weshopify.feature.di.commons.Order">
+		 <property name="orderId" value="123456"></property>	
+		 <property name="paymentMethod" value="CreditCard"></property> 
+		 <property name="orderStatus" value="true"></property>
+		 <!--<property name="orderDetails">
+			 <map>
+				 <entry key="productId" value="123456"></entry>
+				 <entry key="productName" value="Apple I phone"></entry>
+			 </map>
+		 </property>-->
+		 <property name="listOfProducts">
+			 <list>
+				 <ref bean="product-01" />
+				 <ref bean="product-02" />
+			 </list>
+		 </property>
+	 </bean>
+	 
+	 <!--id=creditCard -->
+	 <bean class="com.weshopify.feature.di.setter.CreditCard">
+		 <property name="cardNumber" value="1234567890123456"></property>
+		 <property name="expiry" value="08/23"></property>
+		 <property name="cvv" value="123"></property>
+		 
+		 <property name="order" ref="orderDetails"></property>
+		 
+	 </bean>
+	 
 
 </beans>
