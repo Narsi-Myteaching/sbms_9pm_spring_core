@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+        
+   
+   <!--private long productId;
+	private String name;
+	private String category;
+	private boolean isAvailable;-->
+	
+  <bean id="product-01" class="com.weshopify.feature.di.commons.Products">
+	  <property name="productId" value="100"></property>
+	   <property name="name" value="LG-4K-ULTRA-HD-SMART-TV"></property>
+	  <property name="category" value="Home Appliances"></property>
+	  <property name="available" value="true"></property>
+  </bean>
+  
+  <bean id="product-02" class="com.weshopify.feature.di.commons.Products">
+	  <property name="productId" value="101"></property>
+	   <property name="name" value="SAMSUNg-4K-ULTRA-HD-SMART-TV"></property>
+	  <property name="category" value="Home Appliances"></property>
+	  <property name="available" value="true"></property>
+  </bean>
+  
+  <!-- 
+  private int orderDetailsId;
+	private Map<String, String> orderDetails;
+		-->
+  <!--<bean id="orderDetails" class="com.weshopify.feature.di.autorire.byconstructor.OrderDetails">
+	  <property name="orderDetailsId" value="ORD-100-01"></property>
+	  <property name="ordersInfo">
+		  <map>
+			  <entry key="product" value="home appliances"></entry>
+		  </map>
+	  </property>
+	  
+  </bean>-->
+  <bean id="orderDetails" class="com.weshopify.feature.di.autorire.byconstructor.OrderDetails">
+	  <constructor-arg name="orderDetailsId" value="ORD-100-01"></constructor-arg>
+	  <constructor-arg name="ordersInfo">
+		  <map>
+			  <entry key="product" value="home appliances"></entry>
+		  </map>
+	  </constructor-arg>
+	  
+  </bean>
+
+</beans>

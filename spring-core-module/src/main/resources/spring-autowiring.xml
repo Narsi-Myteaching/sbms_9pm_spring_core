@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+        
+        <!--<import resource="order-details.xml" />-->
+   
+     <context:annotation-config/>
+     <context:component-scan base-package="com.weshopify.feature.*"></context:component-scan>
+  <!-- 
+  	String orderId;
+	Map<String, String> orderDetails;
+	Products product;
+	String paymentMethod;
+	String orderStatus;
+  -->
+  <!--<bean id="order" class="com.weshopify.feature.di.autorire.byconstructor.Order">
+	  <constructor-arg name="orderId" value="ORD-100-01"></constructor-arg>
+	  <constructor-arg name="paymentMethod" value="CREDIT CARD"></constructor-arg>
+	  <constructor-arg name="orderStatus" value="IN PROGRESS"></constructor-arg>
+  </bean>-->
+
+</beans>

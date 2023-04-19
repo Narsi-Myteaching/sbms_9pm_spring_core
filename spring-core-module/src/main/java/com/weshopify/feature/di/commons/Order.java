@@ -11,6 +11,10 @@ public class Order implements Serializable {
 	 */
 	private static final long serialVersionUID = -5785799491013350223L;
 	
+	public Order() {
+		System.out.println(" Order is creating");
+	}
+	
 	private String orderId;
 	private Map<String, String> orderDetails;
 	private List<Products> listOfProducts;

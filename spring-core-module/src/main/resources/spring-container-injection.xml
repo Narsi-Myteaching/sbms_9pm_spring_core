@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+   
+   <!--<bean id="debitCard" class="com.weshopify.feature.di.constructor.DebitCard">
+	   <constructor-arg name="expriry" value="02/24"></constructor-arg>
+	   <constructor-arg name="cardNumber" value="12345678"></constructor-arg>
+	   <constructor-arg name="cvv" value="123"></constructor-arg>
+	  	
+   </bean>-->
+   
+   <bean class="com.weshopify.feature.di.constructor.DebitCard" autowire="byType">
+	  <property name="expriry" value="12/25"></property>
+	   <constructor-arg name="expriry" value="02/24"></constructor-arg>
+	   <constructor-arg name="cardNumber" value="12345678"></constructor-arg>
+	   <constructor-arg name="cvv" value="123"></constructor-arg>
+	   <!--<constructor-arg name="order" ref="orderBean"></constructor-arg> -->  
+	  	
+   </bean>
+   
+    <bean id="orderDetails" class="com.weshopify.feature.di.constructor.Order">
+		 <constructor-arg name="orderId" value="ORD1234"></constructor-arg>
+		 <constructor-arg name="orderDetails">
+			 <map>
+				 <entry key="productId" value="123456"></entry>
+				 <entry key="productName" value="Apple I phone"></entry>
+			 </map>
+			 
+		 </constructor-arg>
+		 <constructor-arg name="listOfProducts">
+			 <list>
+			    <ref bean="product-01"/>
+			    <ref bean="product-02"/>
+			 </list>
+			 
+		 </constructor-arg>
+   	 </bean>
+   	 
+   	 <bean id="orderDetails-01" class="com.weshopify.feature.di.constructor.Order">
+		 <constructor-arg name="orderId" value="ORD1234"></constructor-arg>
+		 <constructor-arg name="orderDetails">
+			 <map>
+				 <entry key="productId" value="123456"></entry>
+				 <entry key="productName" value="Apple I phone"></entry>
+			 </map>
+			 
+		 </constructor-arg>
+		 <constructor-arg name="listOfProducts">
+			 <list>
+			    <ref bean="product-01"/>
+			    <ref bean="product-02"/>
+			 </list>
+			 
+		 </constructor-arg>
+   	 </bean>
+   	 
+   	<bean id="product-01" class="com.weshopify.feature.di.commons.Products">
+		<property name="productId" value="100"></property>	
+		<property name="name" value="Samsung A53"></property> 
+		<property name="category" value="Mobiles and Accessories"></property>   
+		<property name="available" value="true"></property>   
+		   
+	</bean>
+	
+	<bean id="product-02" class="com.weshopify.feature.di.commons.Products">
+		<property name="productId" value="101"></property>	
+		<property name="name" value="Samsung J7Max"></property> 
+		<property name="category" value="Mobiles and Accessories"></property>   
+		<property name="available" value="false"></property>   
+		   
+	</bean>
+   	
+   	
+
+</beans>
